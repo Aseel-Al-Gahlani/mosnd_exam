@@ -8,6 +8,9 @@ $conn = $db->getConnection();
 $review = new Review($conn);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if($_POST['type']==1){
+        
+    
 $review->user_id = 1;//$_POST['user_id'];
 $review->content_id = $_POST['content_id'];
 $review->rating = $_POST['rating'];
@@ -18,6 +21,15 @@ if ($review->create()) {
 echo json_encode(array("message" => "Review created successfully."));
 } else {
 echo json_encode(array("message" => "Unable to create review."));
+}
+} elseif($_POST['type']==2){
+    $review->id = $_POST['id'];
+    $review->user_id = $_POST['user_id'];
+    if ($review->delete()) {
+        echo json_encode(["message" => "Review deleted successfully."]);
+    } else {
+        echo json_encode(["message" => "Invalid input. Review ID and user ID are required."]);
+    }
 }
 } elseif ($_SERVER['REQUEST_METHOD'] == 'PUT') {
 parse_str(file_get_contents("php://input"), $_PUT);

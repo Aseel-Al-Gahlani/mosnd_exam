@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let comment = document.getElementById("comment").value;
 
       let formData = new FormData();
+      formData.append("type", 1);
       formData.append("user_id", user_id);
       formData.append("content_id", content_id);
       formData.append("rating", rating);
@@ -75,7 +76,7 @@ function editReview(id) {
   if (rating && comment) {
     let formData = new FormData();
     formData.append("id", id);
-    formData.append("user_id", document.getElementById("user_id").value);
+    formData.append("user_id", 1);
     formData.append("rating", rating);
     formData.append("comment", comment);
 
@@ -98,11 +99,13 @@ function deleteReview(id) {
     console.log(id);
   if (confirm("Are you sure you want to delete this review?")) {
       let formData = new FormData();
+      
+      formData.append("type", 2);
       formData.append("id", id);
        formData.append("user_id", 1)
 
     fetch("controller.php", {
-      method: "DELETE",
+      method: "POST",
       body: formData,
     })
       .then((response) => response.json())
