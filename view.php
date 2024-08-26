@@ -12,16 +12,19 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container- border rounded p-3 m-3 bg-light">
+    <h3> Artical title</h3>
+    <p>cont jjjjjjjjjjj  kdm o ojimk </p>
+
         <h3>Reviews</h3>
         <div id="reviews"></div>
-
-        <h3>add review</h3>
+        <div class="border rounded p-3 my-3 bg-secondary">
+        <h3 class="text-white">add review</h3>
         <form id="reviewForm">
             <input type="hidden" id="user_id" value="1">
             <input type="hidden" id="content_id" value="1">
             <div class="form-group">
-                <label for="rating">Rating</label>
+                <label for="rating" class="text-white pb-1">Rating</label>
                 <select id="rating" class="form-control">
                     <option value="1">1 - Poor</option>
                     <option value="2">2 - Fair</option>
@@ -31,11 +34,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="comment">Comment</label>
+                <label for="comment" class="text-white pb-1">Comment</label>
                 <textarea id="comment" class="form-control"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
         </form>
+    </div>
     </div>
 
     <script src="script.js"></script>

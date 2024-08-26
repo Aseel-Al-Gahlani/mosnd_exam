@@ -49,19 +49,22 @@ function loadReviews() {
         let reviewElement = document.createElement("div");
         reviewElement.classList.add("review");
         reviewElement.innerHTML = `
-          <div class="card-body">
+          <div class="card-body border rounded bt-3 bx-3 mb-2 alert alert-success">
+          <div class="d-flex justify-content-between">
             <h5 class="card-title">
               ${review.username}
               <span class="badge bg-primary">${review.rating} Stars</span>
             </h5>
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-primary me-2" onclick="editReview(${review.id})">Edit</button>
+              <button class="btn btn-danger" onclick="deleteReview(${review.id})">Delete</button>
+               <button class="btn btn-success d-none" id="saveButton">حفظ</button>
+            </div>
+            </div>
             <p class="card-text">${review.comment}</p>
             <p class="card-footer text-muted">
               Posted on: ${review.created_at}
             </p>
-            <div class="d-flex justify-content-end">
-              <button class="btn btn-primary me-2" onclick="editReview(${review.id})">Edit</button>
-              <button class="btn btn-danger" onclick="deleteReview(${review.id})">Delete</button>
-            </div>
           </div>
         `;
         reviewsContainer.appendChild(reviewElement);
