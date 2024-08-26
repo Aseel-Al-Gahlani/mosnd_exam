@@ -13,13 +13,10 @@
 
 <body>
     <div class="container">
-        <h2>Article Title</h2>
-        <p>Article content...</p>
-
         <h3>Reviews</h3>
         <div id="reviews"></div>
 
-        <h3>Leave a Review</h3>
+        <h3>add review</h3>
         <form id="reviewForm">
             <input type="hidden" id="user_id" value="1">
             <input type="hidden" id="content_id" value="1">

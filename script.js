@@ -95,10 +95,11 @@ function editReview(id) {
 }
 
 function deleteReview(id) {
+    console.log(id);
   if (confirm("Are you sure you want to delete this review?")) {
-    let formData = new FormData();
-    formData.append("id", id);
-    formData.append("user_id", document.getElementById("user_id").value);
+      let formData = new FormData();
+      formData.append("id", id);
+       formData.append("user_id", 1)
 
     fetch("controller.php", {
       method: "DELETE",
